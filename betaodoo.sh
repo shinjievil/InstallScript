@@ -106,7 +106,8 @@ sudo chown $OE_USER:$OE_USER /var/log/$OE_USER
 # Install ODOO
 #--------------------------------------------------
 echo -e "\n==== Installing ODOO Server ===="
-sudo git clone --depth 1 --branch $OE_VERSION https://www.github.com/odoo/odoo $OE_HOME_EXT/
+sudo apt-get install git -y
+sudo git clone --depth 1 --branch 11.0 --single-branch https://www.github.com/odoo/odoo $OE_HOME_EXT/
 
 if [ $IS_ENTERPRISE = "True" ]; then
     # Odoo Enterprise install!
@@ -160,8 +161,8 @@ sudo chmod 640 /etc/${OE_CONFIG}.conf
 #--------------------------------------------------
 # instalar requerimeintos (Odoo)
 #--------------------------------------------------
-sed -i '/pyldap/d' ~/$OE_HOME_EXT/requirements.txt
-sudo pip3 install -r ~/$OE_HOME_EXT/requirements.txt
+sed -i '/pyldap/d' $OE_HOME_EXT/requirements.txt
+sudo pip3 install -r $OE_HOME_EXT/requirements.txt
 
 echo -e "* Create startup file"
 sudo su root -c "echo '#!/bin/sh' >> $OE_HOME_EXT/start.sh"
