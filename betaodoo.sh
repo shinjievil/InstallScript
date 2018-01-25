@@ -29,7 +29,7 @@ OE_PORT="8069"
 OE_VERSION="11.0"
 # Set this to True if you want to install Odoo 11 Enterprise!
 IS_ENTERPRISE="False"
-#set the superadmin password
+#set the superadmin password odoo config
 OE_SUPERADMIN="admin"
 OE_CONFIG="${OE_USER}-server"
 
