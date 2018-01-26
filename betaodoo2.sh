@@ -38,6 +38,10 @@ OE_CONFIG="${OE_USER}-server"
 WKHTMLTOX_X64=https://downloads.wkhtmltopdf.org/0.12/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb
 WKHTMLTOX_X32=https://downloads.wkhtmltopdf.org/0.12/0.12.1/wkhtmltox-0.12.1_linux-trusty-i386.deb
 
+wget -O - https://nightly.odoo.com/odoo.key | apt-key add -
+echo "deb http://nightly.odoo.com/11.0/nightly/deb/ ./" >> /etc/apt/sources.list
+apt-get update && apt-get install odoo
+
 #--------------------------------------------------
 # Update Server
 #--------------------------------------------------
