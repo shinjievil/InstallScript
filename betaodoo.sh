@@ -1,13 +1,14 @@
 #!/bin/bash
 ################################################################################
-# Para debian server
--------------------------------------------------------------------------------
-# Make a new file:
-# sudo nano odoo-install.sh
-# Place this content in it and then make the file executable:
-# sudo chmod +x odoo-install.sh
-# Execute the script to install Odoo:
-# ./odoo-install
+# Script for installing Odoo on Ubuntu 14.04, 15.04 and 16.04 (could be used for other version too)
+# Author: Yenthe Van Ginneken
+# 
+# Modificado por shinjievil
+# Para debian server    -   Yo lo hice en una instalacion limpia
+# Modificado para Debian con odoo 11 community
+# Se desactivo WKHTMLTOPDF="False" recomendado porque debian no reconoce 2 librerias.
+# Se puede instalar WKHTMLTOPDF de forma manual la version 0.12.1 luego yo pondre los pasos ya que funciona perfectamente
+#-------------------------------------------------------------------------------
 ################################################################################
 
 ##fixed parameters
