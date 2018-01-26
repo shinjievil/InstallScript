@@ -45,14 +45,14 @@ WKHTMLTOX_X32=https://downloads.wkhtmltopdf.org/0.12/0.12.1/wkhtmltox-0.12.1_lin
 # Update Server
 #--------------------------------------------------
 echo -e "\n---- Update Server ----"
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo yum update
+sudo yum upgrade -y
 
 #--------------------------------------------------
 # Install PostgreSQL Server
 #--------------------------------------------------
 echo -e "\n---- Install PostgreSQL Server ----"
-sudo apt-get install postgresql -y
+sudo yum install postgresql -y
 
 echo -e "\n---- Creating the ODOO PostgreSQL User  ----"
 sudo su - postgres -c "createuser -s $OE_USER" 2> /dev/null || true
@@ -61,18 +61,18 @@ sudo su - postgres -c "createuser -s $OE_USER" 2> /dev/null || true
 # Install Dependencies
 #--------------------------------------------------
 echo -e "\n--- Installing Python 3 + pip3 + python-pip --"
-sudo apt-get install python3 python3-pip python-pip
+sudo yum install python3 python3-pip python-pip
 
 echo -e "\n---- Install python packages ----"
 sudo pip3 install vobject qrcode num2words
 
 echo -e "\n--- Install other required packages"
-sudo apt-get install curl -y
+sudo yum install curl -y
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
-sudo apt-get install -y npm
+sudo yum install -y npm
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 sudo npm install -g less less-plugin-clean-css
-sudo apt-get install node-less -y
+sudo yum install node-less -y
 
 #--------------------------------------------------
 # Install Wkhtmltopdf if needed
@@ -106,7 +106,7 @@ sudo chown $OE_USER:$OE_USER /var/log/$OE_USER
 # Install ODOO
 #--------------------------------------------------
 echo -e "\n==== Installing ODOO Server ===="
-sudo apt-get install git -y
+sudo yum install git -y
 sudo git clone --depth 1 --branch 11.0 --single-branch https://www.github.com/odoo/odoo $OE_HOME_EXT/
 
 if [ $IS_ENTERPRISE = "True" ]; then
